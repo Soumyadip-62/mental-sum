@@ -57,6 +57,12 @@ function App() {
       }
     });
   };
+
+  const handleKeyPress = (ev)=>{
+     if (ev.keyCode === 13) {
+       calculateMath();
+     }
+  }
   useEffect(() => {
     createMath();
   }, []);
@@ -72,6 +78,7 @@ function App() {
         <div className="">
           <input
             type="text"
+            onKeyDown={handleKeyPress}
             value={userAnswer}
             onChange={(e) => setuserAnswer(e.target.value)}
             placeholder="Your Answer"
@@ -92,7 +99,7 @@ function App() {
               Another One
             </button>
           ) : (
-            <button onClick={calculateMath}>Submit Answer</button>
+            <button  onClick={calculateMath}>Submit Answer</button>
           )}
         </div>
       </div>
